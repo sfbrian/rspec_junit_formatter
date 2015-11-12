@@ -3,6 +3,7 @@ require "builder"
 
 require "rspec/core"
 require "rspec/core/formatters/base_formatter"
+require 'pry'
 
 # Dumps rspec results as a JUnit XML file.
 # Based on XML schema: http://windyroad.org/dl/Open%20Source/JUnit.xsd
@@ -31,6 +32,7 @@ private
   end
 
   def xml_dump_passed(example)
+    binding.pry
     xml_dump_example(example)
   end
 
@@ -41,6 +43,7 @@ private
   end
 
   def xml_dump_failed(example)
+    binding.pry
     exception = exception_for(example)
     backtrace = formatted_backtrace_for(example)
 
